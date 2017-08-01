@@ -1,0 +1,868 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <meta name="generator" content="seamonkey">
+  <title>dpkt documentation by Jeff Silverman</title>
+  <link rel="stylesheet" type="text/css" href="homepage.css">
+</head>
+<body style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);"
+ link="#0000ef" vlink="#59188e">
+<span style="font-size: 10pt;">
+<script type="text/javascript"> document.writeln("This document was last modified "+document.lastModified);</script></span><br>
+<span
+ style="background: rgb(255, 220, 220) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; font-size: 36pt; font-weight: bold;">
+My documentation on dpkt<br>
+</span><span
+ style="background: rgb(255, 220, 220) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; font-size: 36pt; font-weight: bold;"></span>
+<p>By Jeff Silverman, jeffsilverm at gmail dot com<br>
+</p>
+<span
+ style="background: rgb(255, 220, 220) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; font-size: 36pt; font-weight: bold;"></span>dpkt
+is
+a
+wonderful
+piece
+of
+software
+but
+it
+has
+very
+little
+documentation,
+just
+some
+examples
+about
+how
+to
+use
+it.&nbsp; There is a lot more under
+the hood then the examples would have you believe.&nbsp; What the
+author, <a href="http://code.google.com/u/jon.oberheide/">Jon Oberheide</a>,
+would
+have
+you
+believe
+is
+obvious
+is
+not
+obvious
+at
+all.
+There
+are
+more
+examples
+showing <a
+ href="http://jon.oberheide.org/blog/2008/10/15/dpkt-tutorial-2-parsing-a-pcap-file/">how
+to
+parse
+a
+pcap
+file
+that
+has
+HTTP</a> and <a
+ href="http://jon.oberheide.org/blog/2008/08/25/dpkt-tutorial-1-icmp-echo/">How
+to
+generate
+and
+transmit
+an
+ICMPv4
+packet</a>.
+<p>I am doing this work as a classroom project for <a
+ href="http://staff.washington.edu/jon/python-course/course3.html">The
+University of Washington Python Programming class</a>. Most of the
+material is in <a href="git://github.com/jeffsilverm/dpkt_doc.git">github.com</a>.
+To
+get
+it,
+give
+the
+following
+commands:
+</p>
+<pre>[ps37854]$ <kbd>mkdir dpkt_doc</kbd>
+[ps37854]$ <kbd>cd dpkt_doc</kbd>
+[ps37854]$ <kbd>git init .</kbd>
+Initialized empty Git repository in /home/jeffsilverm/commercialventvac/dpkt_doc/.git/
+[ps37854]$ <kbd>git pull git://github.com/jeffsilverm/dpkt_doc.git</kbd>
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0)
+Unpacking objects: 100% (3/3), done.
+From git://github.com/jeffsilverm/dpkt_doc
+ * branch            HEAD       -&gt; FETCH_HEAD
+[ps37854]$ 
+</pre>
+<ol id="mozToc">
+<!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6-->
+  <li><a href="#mozTocId305148">dpkt python module
+    </a>
+    <ol>
+      <li>
+        <ol>
+          <li><a href="#mozTocId379436">Files
+            </a></li>
+          <li><a href="#mozTocId552406">Attributes of dpkt</a>
+            <ol>
+              <li><a href="#mozTocId141081">dpkt.ah</a></li>
+              <li><a href="#mozTocId329579">dpkt.aim</a></li>
+              <li><a href="#mozTocId496699">dpkt.arp</a>
+                <ol>
+                  <li><a href="#mozTocId52235">dpkt.arp.data</a></li>
+                  <li><a href="#mozTocId38168">dpkt.arp.hln</a></li>
+                  <li><a href="#mozTocId70329">dpkt.arp.op</a></li>
+                  <li><a href="#mozTocId871916">dpkt.arp.pln</a></li>
+                  <li><a href="#mozTocId297944">dpkt.arp.pro</a></li>
+                  <li><a href="#mozTocId745765">dpkt.arp.sha</a></li>
+                  <li><a href="#mozTocId108343">dpkt.arp.spa</a></li>
+                  <li><a href="#mozTocId154520">dpkt.arp.tha</a></li>
+                  <li><a href="#mozTocId954781">dpt.arp.tpa</a></li>
+                </ol>
+              </li>
+              <li><a href="#mozTocId109023">dpkt.array</a></li>
+              <li><a href="#mozTocId680582">dpkt.dns</a>
+                <ol>
+                  <li><a href="#mozTocId794518">dpkt.dns.an</a>
+                    <ol>
+                      <li><a href="#mozTocId573551">cls</a></li>
+                      <li><a href="#mozTocId679584">cname</a></li>
+                      <li><a href="#mozTocId185521">name</a></li>
+                    </ol>
+                  </li>
+                  <li><a href="#mozTocId836708">dpkt.dns.ar</a></li>
+                  <li><a href="#mozTocId828152">dpkt.dns.data</a></li>
+                  <li><a href="#mozTocId227496">dpkt.dns.get_opcode</a></li>
+                  <li><a href="#mozTocId406099">dpkt.dns.get_qr</a></li>
+                  <li><a href="#mozTocId550189">dpkt.dns.get_rcode</a></li>
+                  <li><a href="#mozTocId255871">dpkt.dns.id</a></li>
+                  <li><a href="#mozTocId171111">dpkt.dns.ns</a></li>
+                  <li><a href="#mozTocId552570">dpkt.dns.op</a></li>
+                  <li><a href="#mozTocId905637">dpkt.dns.opcode</a></li>
+                  <li><a href="#mozTocId507949">dpkt.dns.pack</a></li>
+                  <li><a href="#mozTocId241911">dpkt.dns.pack_hdr </a></li>
+                  <li><a href="#mozTocId857139">dpkt.dns.pack_q
+                    </a></li>
+                  <li><a href="#mozTocId993303">dpkt.dns.pack_rr</a></li>
+                  <li><a href="#mozTocId768957">dpkt.dns.qd</a></li>
+                  <li><a href="#mozTocId345778">dpkt.dns.qr</a></li>
+                  <li><a href="#mozTocId542068">dpkt.dns.rcode</a></li>
+                  <li><a href="#mozTocId342804">dpkt.dns.set_opcode</a></li>
+                  <li><a href="#mozTocId189509">dpkt.dns.set_qr</a></li>
+                  <li><a href="#mozTocId422545">dpkt.dns.set_rcode</a></li>
+                  <li><a href="#mozTocId705456">dpkt.dns.unpack</a></li>
+                  <li><a href="#mozTocId229909">dpkt.dns.unpack_rr</a></li>
+                </ol>
+              </li>
+              <li><a href="#mozTocId815238">dpkt.ethernet</a>
+                <ol>
+                  <li><a href="#mozTocId79531">dpkt.ethernet.Ethernet
+                    </a>
+                    <ol>
+                      <li><a href="#mozTocId363973">data</a></li>
+                      <li><a href="#mozTocId131995">dst</a></li>
+                      <li><a href="#mozTocId632084">get_type</a></li>
+                      <li><a href="#mozTocId106331">src</a></li>
+                      <li><a href="#mozTocId632454">type</a></li>
+                    </ol>
+                  </li>
+                  <li><a href="#mozTocId229731">dpkt.ethernet.dpkt</a></li>
+                  <li><a href="#mozTocId303086">dpkt.ethernet.stp</a></li>
+                  <li><a href="#mozTocId451840">dpkt.ethernet.struct</a></li>
+                </ol>
+              </li>
+              <li><a href="#mozTocId319619">dpkt.http</a>
+                <ol>
+                  <li><a href="#mozTocId521207">dpkt.http.</a></li>
+                  <li><a href="#mozTocId565133">dpkt.http.Request(received_string)</a>
+                    <ol>
+                      <li><a href="#mozTocId871614">dpkt.http.Request.body</a></li>
+                      <li><a href="#mozTocId147538">dpkt.http.Request.headers</a></li>
+                      <li><a href="#mozTocId861680">dpkt.http.Request.method</a></li>
+                      <li><a href="#mozTocId957220">dpkt.http.Request.uri</a></li>
+                      <li><a href="#mozTocId366644">dpkt.http.Request.version</a></li>
+                    </ol>
+                  </li>
+                </ol>
+              </li>
+              <li><a href="#mozTocId303989">dpkt.ip</a>
+                <ol>
+                  <li><a href="#mozTocId839997">dpkt.ip.IP</a></li>
+                  <li><a href="#mozTocId842199">dpkt.ip.data
+                    </a></li>
+                  <li><a href="#mozTocId358143">dpkt.ip.dst</a></li>
+                  <li><a href="#mozTocId883199">dpkt.ip.hl</a></li>
+                  <li><a href="#mozTocId484635">dpkt.ip.get_proto
+                    </a></li>
+                  <li><a href="#mozTocId839997">dpkt.ip.IP
+                    </a></li>
+                  <li><a href="#mozTocId685143">dpkt.ip.dpkt
+                    </a></li>
+                </ol>
+              </li>
+              <li><a href="#mozTocId741073">dpkt.ip6
+                </a>
+                <ol>
+                  <li><a href="#mozTocId333019">dpkt.ip6.IP6
+                    </a>
+                    <ol>
+                      <li><a href="#mozTocId654872">dpkt.ip6.data</a></li>
+                      <li><a href="#mozTocId500197">dpkt.ip6.dst
+                        </a></li>
+                      <li><a href="#mozTocId948474">dpkt.ip6.fc</a></li>
+                      <li><a href="#mozTocId922984">dpkt.ip6.flow</a></li>
+                      <li><a href="#mozTocId747687">dpkt.ip6.get_proto</a></li>
+                      <li><a href="#mozTocId6244">dpkt.ip6.hlim</a></li>
+                      <li><a href="#mozTocId387853">dpkt.ip6.icmp6</a></li>
+                      <li><a href="#mozTocId674302">dpkt.ip6.nxt</a></li>
+                      <li><a href="#mozTocId779550">dpkt.ip6.pack</a></li>
+                      <li><a href="#mozTocId641982">dpkt.ip6.pack_hdr</a></li>
+                      <li><a href="#mozTocId729713">dpkt.ip6.plen</a></li>
+                      <li><a href="#mozTocId145217">dpkt.ip6.set_proto</a></li>
+                      <li><a href="#mozTocId64123">dpkt.ip6.src</a></li>
+                      <li><a href="#mozTocId899724">dpkt.ip6.unpack</a></li>
+                      <li><a href="#mozTocId894242">dpkt.ip6.v</a></li>
+                      <li><a href="#mozTocId869232">dpkt.ip6.v_fc_flow
+                        </a></li>
+                    </ol>
+                  </li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+          <li><a href="#mozTocId543744">dpkt.pcap</a>
+            <ol>
+              <li><a href="#mozTocId145523">dpkt.pcap.Reader(f)
+                </a></li>
+            </ol>
+          </li>
+          <li><a href="#mozTocId761132">dpkt.tcp</a>
+            <ol>
+              <li><a href="#mozTocId822030">dpkt.tcp.ack</a></li>
+              <li><a href="#mozTocId313863">dpkt.tcp.data</a></li>
+              <li><a href="#mozTocId213737">dpkt.tcp.dport</a></li>
+              <li><a href="#mozTocId470551">dpkt.tcp.flags</a></li>
+              <li><a href="#mozTocId754111">dpkt.tcp.off</a></li>
+              <li><a href="#mozTocId194344">dpkt.tcp.off_x2</a></li>
+              <li><a href="#mozTocId482140">dpkt.tcp.opts</a></li>
+              <li><a href="#mozTocId853600">dpkt.tcp.pack</a></li>
+              <li><a href="#mozTocId114488">dpkt.tcp.pack_hdr</a></li>
+              <li><a href="#mozTocId429391">dpkt.tcp.parse_opts (
+tcp.opts )
+                </a></li>
+              <li><a href="#mozTocId204266">dpkt.tcp.seq</a></li>
+              <li><a href="#mozTocId183496">dpkt.tcp.sport
+                </a></li>
+              <li><a href="#mozTocId306597">dpkt.tcp.sum</a></li>
+              <li><a href="#mozTocId938666">dpkt.tcp.unpack</a></li>
+              <li><a href="#mozTocId722569">dpkt.tcp.urp</a></li>
+              <li><a href="#mozTocId182841">dpkt.tcp.win</a></li>
+            </ol>
+          </li>
+          <li><a href="#mozTocId608799">dpkt.udp</a></li>
+        </ol>
+      </li>
+      <li><a href="#mozTocId874488">Classes that inherit
+from dpkt.Packet</a></li>
+    </ol>
+  </li>
+</ol>
+<span class="Apple-style-span"
+ style="border-collapse: separate; color: rgb(0, 0, 0); font-family: 'Times New Roman'; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; font-size: medium;"><span
+ class="Apple-style-span"
+ style="font-family: arial,sans-serif; font-size: 13px;"><span
+ class="Apple-converted-space"><br>
+</span></span></span>
+<div class="sun"><br>
+<h2><a class="mozTocH2" name="mozTocId305148"></a>dpkt python module<br>
+</h2>
+<p>dpkt is an ethernet packet decoding module.&nbsp; It was written by
+Dugsong.<br>
+</p>
+<p>Fundemental to understanding how dpkt works is the fact that it
+decodes single network packets.&nbsp; This has two consequences:<br>
+</p>
+<ul>
+  <li>It cannot deal with fragmentation at the IP level</li>
+  <li>It cannot deal with fragmentation at the TCP level</li>
+</ul>
+<p>For example, if you are doing an HTTP GET operation, then probably
+the
+entire header will fit into 1500 bytes, which is the default message
+transfer unit (MTU) size of an ethernet and most modern wide area
+networks as well.&nbsp; However, if you are doing an HTTP POST
+operation with a lot of data moving from the client browser to the web
+server, dpkt will be able to parse many of the headers but not all of
+them.</p>
+<p>
+These problems I have tried to solve with software that sits on top of
+dpkt's low level interfaces.&nbsp; For example,
+decode_tcp_iterator_2.py implements a crude TCP stack on top of dpkt.<br>
+</p>
+<br>
+<br>
+<p></p>
+<h3><a class="mozTocH3" name="mozTocId379436"></a>Files<br>
+</h3>
+<pre>jeffs@heavy:/usr$ find . -name "*dpkt*" -print<br>./share/doc/python-dpkt<br>./share/pyshared/dpkt<br>./share/pyshared/dpkt/dpkt.py<br>./share/pyshared/dpkt-1.6.egg-info<br>./share/python-support/python-dpkt.public<br>./lib/pymodules/python2.6/dpkt<br>./lib/pymodules/python2.6/dpkt/dpkt.py<br>./lib/pymodules/python2.6/dpkt/dpkt.pyc<br>./lib/pymodules/python2.6/dpkt-1.6.egg-info<br><br>ls /usr/share/pyshared/dpkt<br>ah.py         dpkt.py       icmp.py       ntp.py      rip.py    stp.py<br>ah.pyc        dpkt.pyc      icmp.pyc      ntp.pyc     rip.pyc   stp.pyc<br>aim.py        dtp.py        igmp.py       ospf.py     rpc.py    stun.py<br>aim.pyc       dtp.pyc       igmp.pyc      ospf.pyc    rpc.pyc   stun.pyc<br>arp.py        esp.py        __init__.py   pcap.py     rtp.py    tcp.py<br>arp.pyc       esp.pyc       __init__.pyc  pcap.pyc    rtp.pyc   tcp.pyc<br>asn1.py       ethernet.py   ip6.py        pim.py      rx.py     telnet.py<br>asn1.pyc      ethernet.pyc  ip6.pyc       pim.pyc     rx.pyc    telnet.pyc<br>bgp.py        gre.py        ip.py         pmap.py     sccp.py   tftp.py<br>bgp.pyc       gre.pyc       ip.pyc        pmap.pyc    sccp.pyc  tftp.pyc<br>cdp.py        gzip.py       ipx.py        pppoe.py    sctp.py   tns.py<br>cdp.pyc       gzip.pyc      ipx.pyc       pppoe.pyc   sctp.pyc  tns.pyc<br>crc32c.py     h225.py       loopback.py   ppp.py      sip.py    tpkt.py<br>crc32c.pyc    h225.pyc      loopback.pyc  ppp.pyc     sip.pyc   tpkt.pyc<br>dhcp.py       hsrp.py       mrt.py        qq.py       sll.py    udp.py<br>dhcp.pyc      hsrp.pyc      mrt.pyc       qq.pyc      sll.pyc   udp.pyc<br>diameter.py   http.py       netbios.py    radius.py   smb.py    vrrp.py<br>diameter.pyc  http.pyc      netbios.pyc   radius.pyc  smb.pyc   vrrp.pyc<br>dns.py        icmp6.py      netflow.py    rfb.py      ssl.py    yahoo.py<br>dns.pyc       icmp6.pyc     netflow.pyc   rfb.pyc     ssl.pyc   yahoo.pyc<br><br></pre>
+<h3><a class="mozTocH3" name="mozTocId552406"></a>Attributes of dpkt</h3>
+&gt;&gt;&gt; dir(dpkt)<br>
+['Error', 'NeedData', 'PackError', 'Packet', 'UnpackError',
+'__author__', '__builtins__', '__copyright__', '__doc__', '__file__',
+'__license__', '__name__', '__package__', '__path__', '__url__',
+'__version__', 'ah', 'aim', 'arp', 'array', 'asn1', 'bgp', 'cdp',
+'copy', 'crc32c', 'dhcp', 'diameter', 'dns', 'dpkt', 'dtp', 'esp',
+'ethernet', 'gre', 'gzip', 'h225', 'hexdump', 'hsrp', 'http', 'icmp',
+'icmp6', 'igmp', 'in_cksum', 'in_cksum_add', 'in_cksum_done', 'ip',
+'ip6', 'ipx', 'itertools', 'loopback', 'mrt', 'netbios', 'netflow',
+'ntp', 'ospf', 'pcap', 'pim', 'pmap', 'ppp', 'pppoe', 'qq', 'radius',
+'rfb', 'rip', 'rpc', 'rtp', 'rx', 'sccp', 'sctp', 'sip', 'sll', 'smb',
+'socket', 'ssl', 'stp', 'struct', 'stun', 'tcp', 'telnet', 'tftp',
+'tns', 'tpkt', 'udp', 'vrrp', 'yahoo']<br>
+&gt;&gt;&gt; <br>
+<h4><a class="mozTocH4" name="mozTocId141081"></a>dpkt.ah</h4>
+<p>This decodes an IPSEC authentication header.&nbsp; Insofar as I can
+tell, dpkt.ah will only work for IPSEC over IPv4.<br>
+</p>
+<p><br>
+</p>
+<h4><a class="mozTocH4" name="mozTocId329579"></a>dpkt.aim</h4>
+<p>AOL instant messenger</p>
+<h4><a class="mozTocH4" name="mozTocId496699"></a>dpkt.arp</h4>
+<p>Address resolution protocol.&nbsp; If the ethernet packet has type
+ETH_TYPE_ARP, then an dpkt.ethernet.Ethernet object will have an arp
+attribute.&nbsp; Refer to <a href="decode.py">decode_arp.py</a>.</p>
+<h5><a class="mozTocH5" name="mozTocId52235"></a>dpkt.arp.data</h5>
+<h5><a class="mozTocH5" name="mozTocId38168"></a>dpkt.arp.hln</h5>
+<p>The length of the hardware address.&nbsp; For Ethernet, this is 6
+bytes.<br>
+</p>
+<h5><a class="mozTocH5" name="mozTocId70329"></a>dpkt.arp.op</h5>
+<p>The operation.&nbsp; 1=request, 2=reply<br>
+</p>
+<h5><a class="mozTocH5" name="mozTocId871916"></a>dpkt.arp.pln</h5>
+<p>The protocol address length.&nbsp; For IPv4, this is 4.<br>
+</p>
+<h5><a class="mozTocH5" name="mozTocId297944"></a>dpkt.arp.pro</h5>
+<p>The upper layer protocol for which the ARP request is intended. For
+IPv4, this has the value 0x0800. The permitted&nbsp; values share a
+numbering space with those for ethertype.<span
+ style="text-decoration: underline;"></span><a
+ href="http://en.wikipedia.org/wiki/Ethertype" title="Ethertype"
+ class="mw-redirect"
+ style="text-decoration: none; color: rgb(6, 69, 173); background-image: none;"><br>
+</a></p>
+<h5><a class="mozTocH5" name="mozTocId745765"></a>dpkt.arp.sha</h5>
+<p>The source hardware address (SHA).&nbsp; This should be the same as
+the
+source ethernet address but doesn't have to be.&nbsp; If the SHA and
+the ethernet source address are different, then you might suspect
+somebody trying to poison your arp cache.&nbsp; However, there are
+legitimate reasons why they might be different, most of which are
+anacronisms these days.&nbsp; Just because the source ethernet address
+and the SHA are the same, doesn't mean that nobody is trying to poison
+your arp cache.<br>
+</p>
+<h5><a class="mozTocH5" name="mozTocId108343"></a>dpkt.arp.spa</h5>
+<p>The source protocol address.&nbsp; This will usually be an IPv4
+address.&nbsp; You will never see an IPv6 address here, because IPv6
+uses neighbor discovery protocol.<br>
+</p>
+<h5><a class="mozTocH5" name="mozTocId154520"></a>dpkt.arp.tha</h5>
+<p>The target hardware address.&nbsp; In an ARP request, this will be
+0.&nbsp; In an ARP reply, it should be the same as the Ethernet source
+address, but it doesn't have to be.&nbsp; You don't see this very often
+any more, but there used to be ARP servers which would supply ARP
+replies for hosts too dumb to provide their own ARP replies.&nbsp; You
+can also use this field to poison an ARP cache.<br>
+</p>
+<h5><a class="mozTocH5" name="mozTocId954781"></a>dpt.arp.tpa</h5>
+<p>The target protocol address.&nbsp; This is the address that ARP is
+going to translate into a MAC address.&nbsp; The IPv4 hosts in the
+network listen for ARP requests, which are sent to the broadcast
+Ethernet address.&nbsp; When a host sees its own IP address in the tpa
+field, it knows it has to reply with an ARP reply.</p>
+<br>
+<h4><a class="mozTocH4" name="mozTocId109023"></a>dpkt.array</h4>
+<br>
+<h4><a class="mozTocH4" name="mozTocId680582"></a>dpkt.dns</h4>
+['Q', 'RR', '__class__', '__delattr__', '__dict__', '__doc__',
+'__format__', '__getattribute__', '__getitem__', '__hash__', '__hdr__',
+'__hdr_defaults__', '__hdr_fields__', '__hdr_fmt__', '__hdr_len__',
+'__init__', '__len__', '__metaclass__', '__module__', '__new__',
+'__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__',
+'__slots__', '__str__', '__subclasshook__', '__weakref__', 'an', 'ar',
+'data', 'get_opcode', 'get_qr', 'get_rcode', 'id', 'ns', 'op',
+'opcode', 'pack', 'pack_hdr', 'pack_q', 'pack_rr', 'qd', 'qr', 'rcode',
+'set_opcode', 'set_qr', 'set_rcode', 'unpack', 'unpack_q', 'unpack_rr']<br>
+<p>In general, DNS runs on top of UDP.&nbsp; DNS can run on top of TCP
+and will do so if the query is large and also if there is a zone
+transfer.&nbsp; Many of the values in these fields come from <a
+ href="http://www.iana.org/assignments/dns-parameters">IANA</a>.<br>
+</p>
+<p>Insofar as I can tell, dpkt doesn't provide the AD bit.&nbsp; The AD
+bit is set if this response is authoritative according to the policies
+of the server.&nbsp; A caching name server is generally not
+authoritative.<br>
+</p>
+<p>Name servers return answers that have character values outside of
+the range 33 to 126 decimal inclusive.&nbsp; I don't know why.&nbsp;
+Both dig and wireshark are able to decipher the strings properly.<br>
+</p>
+<h5><a class="mozTocH5" name="mozTocId794518"></a>dpkt.dns.an</h5>
+<p>A list of answers.&nbsp; Each answer is an RR record.&nbsp; For a
+DNS query, this is an empty list.&nbsp; To get the results from the DNS
+query, you have to iterate over the list and decode each RR record.<br>
+</p>
+<h6><a class="mozTocH6" name="mozTocId573551"></a>cls</h6>
+<p>Class.&nbsp; For modern resolvers, this should always be 1.&nbsp;
+There were other classes defined in RFC 1035, but nobody uses them
+anymore.<br>
+</p>
+<h6><a class="mozTocH6" name="mozTocId679584"></a>cname</h6>
+<p>This is the canonical name of the thing being looked up.&nbsp; The
+response will be applicable to this cname.<br>
+</p>
+<h6><a class="mozTocH6" name="mozTocId185521"></a>name</h6>
+<p>The name that was looked up, before translation to a canonical name,
+if any.<br>
+</p>
+<br>
+<h5><a class="mozTocH5" name="mozTocId836708"></a>dpkt.dns.ar</h5>
+<p>This is either an Authority Record or an Additional Record.<br>
+</p>
+<h5><a class="mozTocH5" name="mozTocId828152"></a>dpkt.dns.data</h5>
+<h5><a class="mozTocH5" name="mozTocId227496"></a>dpkt.dns.get_opcode</h5>
+<h5><a class="mozTocH5" name="mozTocId406099"></a>dpkt.dns.get_qr</h5>
+<p>qr is 0 if this message is a query and 1 if this message is a
+response.</p>
+<h5><a class="mozTocH5" name="mozTocId550189"></a>dpkt.dns.get_rcode</h5>
+<h5><a class="mozTocH5" name="mozTocId255871"></a>dpkt.dns.id</h5>
+<p>The ID field is set by the DNS resolver when it makes a query.&nbsp;
+The ID field is also set by the nameserver when it responds to the
+query.&nbsp; That way, the resolver knows which query the response is
+in response to.<br>
+</p>
+<h5><a class="mozTocH5" name="mozTocId171111"></a>dpkt.dns.ns</h5>
+<p>A list of name servers for this domain.&nbsp; To decode this list,
+iterate over each entry in the list and decode as in dpt.dns.an<br>
+</p>
+<br>
+<h5><a class="mozTocH5" name="mozTocId552570"></a>dpkt.dns.op</h5>
+<h5><a class="mozTocH5" name="mozTocId905637"></a>dpkt.dns.opcode</h5>
+<p>The opcode is 0&nbsp; a standard query (QUERY), 1 an inverse query
+(IQUERY) (obsoleted by RFC 3425),&nbsp; 2&nbsp;&nbsp; a server status
+request (STATUS), 3 is unassigned, 4 is Notify (RFC&nbsp; 1996), 5 is
+update, defined by RFC 2136<br>
+</p>
+<br>
+<h5><a class="mozTocH5" name="mozTocId507949"></a>dpkt.dns.pack</h5>
+<h5><a class="mozTocH5" name="mozTocId241911"></a>dpkt.dns.pack_hdr </h5>
+<h5><a class="mozTocH5" name="mozTocId857139"></a>dpkt.dns.pack_q<br>
+</h5>
+<h5><a class="mozTocH5" name="mozTocId993303"></a>dpkt.dns.pack_rr</h5>
+<h5><a class="mozTocH5" name="mozTocId768957"></a>dpkt.dns.qd</h5>
+<h5><a class="mozTocH5" name="mozTocId345778"></a>dpkt.dns.qr</h5>
+<p>qr is 0 if this message is a query and 1 if this message is a
+response.<br>
+</p>
+<br>
+<h5><a class="mozTocH5" name="mozTocId542068"></a>dpkt.dns.rcode</h5>
+<h5><a class="mozTocH5" name="mozTocId342804"></a>dpkt.dns.set_opcode</h5>
+<h5><a class="mozTocH5" name="mozTocId189509"></a>dpkt.dns.set_qr</h5>
+<h5><a class="mozTocH5" name="mozTocId422545"></a>dpkt.dns.set_rcode</h5>
+<h5><a class="mozTocH5" name="mozTocId705456"></a>dpkt.dns.unpack</h5>
+<h5><a class="mozTocH5" name="mozTocId229909"></a>dpkt.dns.unpack_rr</h5>
+<h4><a class="mozTocH4" name="mozTocId815238"></a>dpkt.ethernet</h4>
+'ETH_CRC_LEN', 'ETH_HDR_LEN', 'ETH_LEN_MAX', 'ETH_LEN_MIN', 'ETH_MIN',
+'ETH_MTU', 'ETH_TYPE_8021Q', 'ETH_TYPE_ARP', 'ETH_TYPE_CDP',
+'ETH_TYPE_DTP', 'ETH_TYPE_IP', 'ETH_TYPE_IP6', 'ETH_TYPE_IPX',
+'ETH_TYPE_MPLS', 'ETH_TYPE_MPLS_MCAST', 'ETH_TYPE_PPP',
+'ETH_TYPE_PPPoE', 'ETH_TYPE_PPPoE_DISC', 'ETH_TYPE_PUP',
+'ETH_TYPE_REVARP', 'Ethernet', '__builtins__', '__doc__', '__file__',
+'__load_types', '__name__', '__package__', 'dpkt', 'stp', 'struct'<br>
+<br>
+<h5><a class="mozTocH4" name="mozTocId79531"></a>dpkt.ethernet.Ethernet<br>
+</h5>
+dpkt.ethernet.Ethernet has attributes 'data', 'dst', 'get_type', 'ip',
+'pack', 'pack_hdr', 'set_type', 'src', 'type', 'unpack']<br>
+<br>
+<h6><a class="mozTocH6" name="mozTocId363973"></a>data</h6>
+<p>Contains the data payload of the ethernet packet.</p>
+<br>
+<h6><a class="mozTocH5" name="mozTocId131995"></a>dst</h6>
+<p>Contains the destination address of the ethernet packet as a 6 byte
+strings.</p>
+<br>
+<p>6 Byte Ethernet addresses can be converted to strings in format
+nn:nn:nn:nn:nn:nn with the code:</p>
+<pre>def add_colons_to_mac( mac_addr ) :<br>    """This function accepts a 12 hex digit string and converts it to a colon separated string"""<br>    s = list()<br>    for i in range(12/2) : 	# mac_addr should always be 12 chars, we work in groups of 2 chars<br>        s.append( mac_addr[i*2:i*2+2] )<br>    r = ":".join(s)		# I know this looks strange, refer to http://docs.python.org/library/stdtypes.html#sequence-types-str-unicode-list-tuple-bytearray-buffer-xrange<br>    return r<br><br><br>add_colons_to_mac( binascii.hexlify(arp.sha) )<br><br></pre>
+<br>
+<h6><a class="mozTocH5" name="mozTocId632084"></a>get_type</h6>
+<p>Returns a class which is something from the Ethernet Type field</p>
+<pre>(Pdb) print eth._typesw.keys()<br>[2048, 8192, 34916, 2054, 34827, 33079, 8196, 34525]<br>(Pdb) print eth._typesw.values()<br>[&lt;class 'dpkt.ip.IP'&gt;, &lt;class 'dpkt.cdp.CDP'&gt;, &lt;class<br>'dpkt.pppoe.PPPoE'&gt;, &lt;class 'dpkt.arp.ARP'&gt;, &lt;class<br>'dpkt.ppp.PPP'&gt;, &lt;class 'dpkt.ipx.IPX'&gt;, &lt;class<br>'dpkt.dtp.DTP'&gt;, &lt;class 'dpkt.ip6.IP6'&gt;] <br>(Pdb) print eth.get_type(2048) <br>&lt;class 'dpkt.ip.IP'&gt; <br>(Pdb) print eth.get_type(34525)<br>&lt;class 'dpkt.ip6.IP6'&gt; <br>(Pdb) <br></pre>
+<p>Another way to do the same thing is:<br>
+</p>
+<pre>import dpkt<br>eth = dpkt.ethernet.Ethernet()<br>print eth._typesw[2048]<br>&lt;class 'dpkt.ip.IP'&gt;<br>print eth._typesw[34525]<br>&lt;class 'dpkt.ip6.IP6'&gt;<br>print eth._typesw[33079]<br>&lt;class 'dpkt.ipx.IPX'&gt;<br></pre>
+<h6><a class="mozTocH5" name="mozTocId106331"></a>src</h6>
+<p>Contains the source address of the ethernet packet as a 6 byte
+string.&nbsp; To decode to ASCII, <a href="mozTocId131995">see dst</a>,
+above.<br>
+</p>
+<br>
+<h6><a class="mozTocH5" name="mozTocId632454"></a>type</h6>
+<p>Returns the Ethernet type.&nbsp; For example, type 2048 (0x0800) is
+IPv4 and 34525 (0x86DD) is IPv6.&nbsp; For a complete list of Ethernet
+types, refer to <a
+ href="http://www.iana.org/assignments/ethernet-numbers">http://www.iana.org/assignments/ethernet-numbers</a>
+To get a list of ethernet types that are supported by dpkt, refer to
+the code at <a href="#mozTocId632084">get_type</a>.<br>
+</p>
+<br>
+<h5><a class="mozTocH5" name="mozTocId229731"></a>dpkt.ethernet.dpkt</h5>
+['Error', 'NeedData', 'PackError', 'Packet', 'UnpackError',
+'_MetaPacket', '__builtins__', '__doc__', '__file__', '__name__',
+'__package__', '__vis_filter', 'array', 'copy', 'hexdump', 'in_cksum',
+'in_cksum_add', 'in_cksum_done', 'itertools', 'socket', 'struct']<br>
+<br>
+<h5><a class="mozTocH5" name="mozTocId303086"></a>dpkt.ethernet.stp</h5>
+<p>This is spanning tree protocol.<br>
+</p>
+<h5><a class="mozTocH5" name="mozTocId451840"></a>dpkt.ethernet.struct</h5>
+<h4><a class="mozTocH4" name="mozTocId319619"></a>dpkt.http</h4>
+<p>Objects for decoding HTTP.&nbsp; The message going from the client
+browser to the server is the request, the message going from the server
+to the client browser is the response.<br>
+</p>
+<h5><a class="mozTocH5" name="mozTocId521207"></a>dpkt.http.Reply(received_string)</h5>
+<p>Create a dpkt.http.Reply object from the received string.&nbsp; The
+received string probably will include the body of the response and may
+be quite large.&nbsp; Use a module such as decode_tcp_iterator_2 to
+combine the payloads of several packets into a single received string.<br>
+</p>
+<h6>dpkt.http.Reply.status</h6>
+<p>This is the numeric code that the server returns to the browser
+which describes the outcome of the request.&nbsp; Values in the range
+of 1xx are continuation, values in the range of 2xx are success, values
+in the range of 3xx are relocations, values in the range of 4xx are
+errors from the client, values in the range of 5xx are errors in the
+server.&nbsp; The status is just 3 digits, there is an explanation of
+the error that is returned in dpkt.htt.Reply.reason.&nbsp; The full
+list of status codes is given in <a
+ href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10">RFC
+2616 section 10</a>.<br>
+</p>
+<h6>dpkt.http.Reply.reason</h6>
+<p>The reason is a brief explanation of the status code.&nbsp;
+According to <a
+ href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html#sec6.1.1">RFC
+2616 section 6.1.1</a> the reason is for human use only and has no
+significance to the protocol.<br>
+</p>
+<h6>dpkt.http.Reply.body</h6>
+<p>The body is the payload of the HTTP response.&nbsp; Its type is
+given by value of content-type header, which is a MIME type as
+described in <a href="http://www.ietf.org/rfc/rfc2045.txt">RFC 2045</a>,
+<a href="http://www.ietf.org/rfc/rfc2046.txt">RFC 2046</a>, and <a
+ href="http://www.ietf.org/rfc/rfc2047.txt">RFC 2047</a>.&nbsp; The
+list of MIME types is maintained by <a
+ href="http://www.iana.org/assignments/media-types/index.html">the
+Internet Assigned Numbers Authority (IANA)</a>.<br>
+</p>
+<h6>dpkt.http.Reply.headers</h6>
+<p>headers is a dictionary of the headers of the reply.&nbsp; The keys
+are the headers that are present, the values are the values of those
+headers.&nbsp; The list of allowed headers is given by <a
+ href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html">RFC 2616
+section 14</a>.<br>
+</p>
+<br>
+<h5><a class="mozTocH5" name="mozTocId565133"></a>dpkt.http.Request(received_string)</h5>
+<p>Create a dpkt.http.Request object from the received string.<br>
+</p>
+<h6><a class="mozTocH6" name="mozTocId871614"></a>dpkt.http.Request.body</h6>
+<p>If the HTTP request method is POST, then this attribute will contain
+the input that is passed to the server.&nbsp; If the method is GET,
+then this attribute will be an empty string.<br>
+</p>
+<h6><a class="mozTocH6" name="mozTocId147538"></a>dpkt.http.Request.headers</h6>
+<p>This is a dictionary.&nbsp; The keys of the dictionary are the
+header fields that are present and the values of the dictionary are the
+values of the field.&nbsp; For example:<br>
+</p>
+<pre>(Pdb) print http_req.headers<br>{'host': 'www.kame.net', 'connection': 'Keep-Alive', 'accept': '*/*', 'user-agent': 'Wget/1.12 (linux-gnu)'}<br>(Pdb) <br><br></pre>
+<h6><a class="mozTocH6" name="mozTocId861680"></a>dpkt.http.Request.method<br>
+</h6>
+<p>When doing an HTTP request, the client browser refers to the object
+with a method.&nbsp; The most common methods are GET and PUT.&nbsp; The
+difference between GET and PUT has to do with how arguments are passed
+from the client to the server.&nbsp; With a GET, the arguments are
+passed in the URI separated by &amp; characters.&nbsp; With a PUT, the
+values are passed as key value pairs in the body of the request.&nbsp;
+Refer to <a
+ href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.1.2">RFC
+2616 section 9.1.2</a> for a discussion of methods and idempotence.<br>
+</p>
+<p>For a list of valid methods, refer to <a
+ href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html#sec5.1.1">RFC
+2616 section 5.1</a>.<br>
+</p>
+<h6><a class="mozTocH6" name="mozTocId957220"></a>dpkt.http.Request.uri</h6>
+<p>The URI (Uniform Resource Identifier) the the part of the URL
+(Uniform Resource Locator) which comes after the hostname.&nbsp; So,
+for example, the URI of the URL <a
+ href="http://www.commercialventvac.com/dpkt.html">http://www.commercialventvac.com/dpkt.html</a>
+is /dpkt.html.&nbsp; The URI of the URL <a
+ href="http://www.commercialventvac.com">http://www.commercialventvac.com</a>
+is /<br>
+</p>
+<h6><a class="mozTocH6" name="mozTocId366644"></a>dpkt.http.Request.version</h6>
+<p>The version of HTTP.&nbsp; Valid values (as of this writing) are
+0.9, 1.0, and 1.1<br>
+</p>
+<br>
+<h4><a class="mozTocH4" name="mozTocId303989"></a>dpkt.ip</h4>
+<br>
+True<br>
+&gt;&gt;&gt;<br>
+<pre>'data', 'dst', 'get_proto', 'hl', 'id', 'len', 'off', 'opts', 'p', 'pack', 'pack_hdr', 'set_proto', 'src', 'sum', 'tcp', 'tos', 'ttl', 'unpack', 'v', 'v_hl'<br></pre>
+<br>
+<h5><a class="mozTocH5" name="mozTocId839997"></a>dpkt.ip.IP</h5>
+<p>This constructor can be used to create a packet.&nbsp;&nbsp; <br>
+</p>
+<pre>from dpkt.udp import UDP<br>from dpkt.ip import IP<br>import socket<br><br><br>udp = UDP(data="testing")<br>src=socket.inet_aton("127.0.0.1")<br>dst=socket.inet_aton("67.205.52.141")<br>ip = IP(src=src, dst=dst, data=udp )<br><br>ip<br>IP(src='\x7f\x00\x00\x01', dst='C\xcd4\x8d', data=UDP(data='testing'))<br><br><br><br></pre>
+<h5><a class="mozTocH4" name="mozTocId842199"></a>dpkt.ip.data<br>
+</h5>
+<p>This is the payload of the IP packet<br>
+</p>
+<pre><br></pre>
+<h5><a class="mozTocH4" name="mozTocId358143"></a>dpkt.ip.dst</h5>
+<p>The destination IPv4 address of the packet.&nbsp; You can convert
+the destination IP address to an ASCII string in dotted quad format
+using the socket package:<br>
+</p>
+<pre>import socket<br>dst_ip_addr_str = socket.inet_ntoa(ip.dst)<br></pre>
+<h5><a class="mozTocH4" name="mozTocId883199"></a>dpkt.ip.hl</h5>
+<p>Internet Header Length is the length of the internet header in 32
+bit
+words, and thus points to the beginning of the data. Note that the
+minimum value for a correct header is 5.</p>
+<br>
+<h5><a class="mozTocH4" name="mozTocId484635"></a>dpkt.ip.get_proto<br>
+</h5>
+<h5><a class="mozTocH5" name="mozTocId839997"></a>dpkt.ip.IP<br>
+</h5>
+<h5><a class="mozTocH5" name="mozTocId685143"></a>dpkt.ip.dpkt<br>
+</h5>
+<br>
+<h4><a class="mozTocH4" name="mozTocId741073"></a>dpkt.ip6<br>
+</h4>
+<h5><a class="mozTocH4" name="mozTocId333019"></a>dpkt.ip6.IP6<br>
+</h5>
+&gt;&gt;&gt; dir(dpkt.ip6.IP6)<br>
+['__class__', '__delattr__', '__dict__', '__doc__', '__format__',
+'__getattribute__', '__getitem__', '__hash__', '__hdr__',
+'__hdr_defaults__', '__hdr_fields__', '__hdr_fmt__', '__hdr_len__',
+'__init__', '__len__', '__metaclass__', '__module__', '__new__',
+'__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__',
+'__slots__', '__str__', '__subclasshook__', '__weakref__', '_get_fc',
+'_get_flow', '_get_v', '_protosw', '_set_fc', '_set_flow', '_set_v',
+'data', 'dst', 'fc', 'flow', 'get_proto', 'hlim', 'nxt', 'pack',
+'pack_hdr', 'plen', 'set_proto', 'src', 'unpack', 'v', 'v_fc_flow']<br>
+&gt;&gt;&gt; <br>
+&gt;&gt;&gt; callable(dpkt.ip6.IP6)<br>
+True<br>
+'data', 'dst', 'fc', 'flow', 'get_proto', 'hlim', 'icmp6', 'nxt',
+'pack', 'pack_hdr', 'plen', 'set_proto', 'src', 'unpack', 'v',
+'v_fc_flow'<br>
+<h6><a class="mozTocH6" name="mozTocId654872"></a>dpkt.ip6.data</h6>
+<p>This is the payload of the packet.&nbsp; Depending on ip6.nxt, this
+will be UDP, TCP, or similar.&nbsp; dpkt magically casts this into the
+proper datatype.<br>
+</p>
+<h6><a class="mozTocH6" name="mozTocId500197"></a>dpkt.ip6.dst<br>
+</h6>
+<p>This is the destination IPv6 address, 128 bits.&nbsp; To create a
+packed IPv6 address from an ASCII string:<br>
+</p>
+<pre>import socket<br>dst_addr = socket.inet_pton(socket.AF_INET6, "2001:1938:26f:1:204:4bff:0:1")<br><br></pre>
+<h6><a class="mozTocH6" name="mozTocId948474"></a>dpkt.ip6.fc</h6>
+<h6><a class="mozTocH6" name="mozTocId922984"></a>dpkt.ip6.flow</h6>
+<p>IPv6 defines a optimization called a "flow".&nbsp; If a router sees
+a packet with a non-zero flow for the first time, it makes its routing
+decision and stores that decision in a fast hash table.&nbsp; Then when
+subsequent packets come by with the same flow, the router can makes its
+routing decision faster.&nbsp; The flow is initialized by a random
+number generator on the host that is originating the connection.&nbsp;
+It can be left 0.<br>
+</p>
+<br>
+<h6><a class="mozTocH6" name="mozTocId747687"></a>dpkt.ip6.get_proto</h6>
+<h6><a class="mozTocH6" name="mozTocId6244"></a>dpkt.ip6.hlim</h6>
+<p>The hop limit.&nbsp; Each time the packet hops from router to
+router, this field is decremented by 1.&nbsp; When the hlim reaches 0,
+the packet is discarded, and an ICMP6 type 3 packet is sent to the
+sender.&nbsp; tracepath6 uses this field to probe the path to a
+destination.&nbsp; It sends a packet with a small hlim.&nbsp; When the
+router decrements the hlim to zero and sends back the ICMPv6 packet to
+the sender, tracepath6 records the source address of the ICMPv6 packet
+and knows the IP address of the router.<br>
+</p>
+<br>
+<h6><a class="mozTocH6" name="mozTocId387853"></a>dpkt.ip6.icmp6</h6>
+<h6><a class="mozTocH6" name="mozTocId674302"></a>dpkt.ip6.nxt</h6>
+<p>The next header type.&nbsp; If there is no next header, then the
+protocol of the next level in the stack.&nbsp; Typical values are 6 for
+TCP, 17 for UDP, 58 for ICMPv6, 132 for SCTP.&nbsp; For a list of
+protocols, see <a
+ href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xml">http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xml</a><br>
+</p>
+<h6><a class="mozTocH6" name="mozTocId779550"></a>dpkt.ip6.pack</h6>
+<h6><a class="mozTocH6" name="mozTocId641982"></a>dpkt.ip6.pack_hdr</h6>
+<h6><a class="mozTocH6" name="mozTocId729713"></a>dpkt.ip6.plen</h6>
+<p>The payload length, not counting the IPv6 header.&nbsp; This is a 16
+bit unsigned number.<br>
+</p>
+<h6><a class="mozTocH6" name="mozTocId145217"></a>dpkt.ip6.set_proto</h6>
+<h6><a class="mozTocH6" name="mozTocId64123"></a>dpkt.ip6.src</h6>
+<p>The source IPv6 address, which is 128 bits long.&nbsp; To decode the
+IPv6 address into an ASCII string comprehensible by humans, use the
+socket.inet_ntop method:<br>
+</p>
+<pre>import socket<br>import dpkt<br>eth = dpkt.ethernet.Ethernet(buf)<br>ip = eth.data<br>dst_ip_addr_str = socket.inet_ntop(AF_INET6, ip.dst)<br>print dst_ip_addr_str<br></pre>
+<p>This will give an output that looks like:
+2001:1938:26f:1:204:4bff:0:1</p>
+<h6><a class="mozTocH6" name="mozTocId899724"></a>dpkt.ip6.unpack</h6>
+<h6><a class="mozTocH6" name="mozTocId894242"></a>dpkt.ip6.v</h6>
+<p>This is the version of IP, which must be 6.&nbsp; If the ethernet
+type is 34525 and this is not 6, then throw an exception because
+something is wrong.<br>
+</p>
+<h6><a class="mozTocH6" name="mozTocId869232"></a>dpkt.ip6.v_fc_flow
+</h6>
+<h3><a class="mozTocH3" name="mozTocId543744"></a>dpkt.pcap</h3>
+['DLT_ARCNET', 'DLT_AX25', 'DLT_CHAOS', 'DLT_EN10MB', 'DLT_EN3MB',
+'DLT_FDDI', 'DLT_IEEE802', 'DLT_LINUX_SLL', 'DLT_LOOP', 'DLT_NULL',
+'DLT_PFLOG', 'DLT_PFSYNC', 'DLT_PPP', 'DLT_PRONET', 'DLT_RAW',
+'DLT_SLIP', 'FileHdr', 'LEFileHdr', 'LEPktHdr', 'PCAP_VERSION_MAJOR',
+'PCAP_VERSION_MINOR', 'PMUDPCT_MAGIC', 'PktHdr', 'Reader',
+'TCPDUMP_MAGIC', 'Writer', '__builtins__', '__doc__', '__file__',
+'__name__', '__package__', 'dltoff', 'dpkt', 'sys', 'time']<br>
+<h4><a class="mozTocH4" name="mozTocId145523"></a>dpkt.pcap.Reader(f)<br>
+</h4>
+<p>dpkt.pcap.Reader(f) implements an iterator.&nbsp; Each iteration
+returns a tuple which is a timestamp and a buffer.&nbsp; The timestamp
+contains a time as a floating point number.&nbsp; The buffer is a
+complete packet.&nbsp; For example:<br>
+</p>
+<pre><code>#!/usr/bin/env python<br># -*- coding: utf-8 -*-<br><br>import dpkt<br>import sys <br><br><br>f = open(sys.argv[1])<br>pcap = dpkt.pcap.Reader(f)<br>frame_counter = 0<br>for ts, buf in pcap:<br>    frame_counter += 1<br>    if frame_counter &gt; 1 :<br>        print "%d: %f %f" % ( frame_counter, ts, ts - last_time )<br>    last_time = ts<br><br>f.close()</code><br><br></pre>
+<h3><a class="mozTocH3" name="mozTocId761132"></a>dpkt.tcp</h3>
+<p>TCP is a reliable, stream oriented protocol.&nbsp; Refer to <a
+ href="http://tools.ietf.org/html/rfc793">RFC 793</a> for more
+information.</p>
+<br>
+<h4><a class="mozTocH4" name="mozTocId822030"></a>dpkt.tcp.ack</h4>
+<p>This is the last byte that the receiver has received.&nbsp; The
+sender then knows that it need not resend any bytes prior to this point.<br>
+</p>
+<h4><a class="mozTocH4" name="mozTocId313863"></a>dpkt.tcp.data</h4>
+<p>The payload of this TCP segment.&nbsp; Note that the seqments may be
+delivered out of order, so it is not sufficient to simply join the
+payloads together.&nbsp; The maximum length of a TCP segment payload is
+the MTU size of this network less the length of the IP header less the
+length of a TCP header with no options.&nbsp; For example, Ethernet has
+an MTU of 1500 bytes (Most modern networks use this size to avoid
+fragmentation on all links - IPv6 the smallest MTU must be at least
+1200 bytes but may be longer).&nbsp; The IPv4 header is 20 bytes,
+minimum.&nbsp; An IPv6 header is 40 bytes.&nbsp; The TCP header is 20
+bytes, so the maximum length of a TCP segment is 1460 bytes for IPv4
+and 1440 bytes for IPv6.<br>
+</p>
+<h4><a class="mozTocH4" name="mozTocId213737"></a>dpkt.tcp.dport</h4>
+<p>The destination port of the packet, a 16 bit unsigned number.&nbsp;
+For a list of well known destination ports, refer to <a
+ href="http://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers">http://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers</a>.&nbsp;
+If
+the SYN flag is set and the ACK flag is cleared, then this packet is
+the beginning of a connection and you may use the dport to determine
+what service is being used and how to decode the conversation.<br>
+</p>
+<h4><a class="mozTocH4" name="mozTocId470551"></a>dpkt.tcp.flags</h4>
+<p>The TCP flags.&nbsp; To decode them, use the following code:</p>
+<pre><code>            fin_flag = ( tcp.flags &amp; dpkt.tcp.TH_FIN ) != 0<br>            syn_flag = ( tcp.flags &amp; dpkt.tcp.TH_SYN ) != 0<br>            rst_flag = ( tcp.flags &amp; dpkt.tcp.TH_RST ) != 0<br>            psh_flag = ( tcp.flags &amp; dpkt.tcp.TH_PUSH) != 0<br>            ack_flag = ( tcp.flags &amp; dpkt.tcp.TH_ACK ) != 0<br>            urg_flag = ( tcp.flags &amp; dpkt.tcp.TH_URG ) != 0<br>            ece_flag = ( tcp.flags &amp; dpkt.tcp.TH_ECE ) != 0<br>            cwr_flag = ( tcp.flags &amp; dpkt.tcp.TH_CWR ) != 0</code><br></pre>
+<br>
+<h4><a class="mozTocH4" name="mozTocId754111"></a>dpkt.tcp.off</h4>
+<p>4 bits.&nbsp; Specifies the size of the TCP header in 32 bit
+longwords.&nbsp; The minimum size of a TCP header is 20 bytes (5
+longwords) and the maximum is 60 bytes (15 longwords).&nbsp; This field
+gets its name because it is the offset from the beginning of the header
+to the data.</p>
+<br>
+<h4><a class="mozTocH4" name="mozTocId194344"></a>dpkt.tcp.off_x2</h4>
+<h4><a class="mozTocH4" name="mozTocId482140"></a>dpkt.tcp.opts</h4>
+This is a list of options.&nbsp; <span style="color: rgb(255, 0, 0);">Needs
+more
+detail.</span><br>
+<br>
+<h4><a class="mozTocH4" name="mozTocId853600"></a>dpkt.tcp.pack</h4>
+<h4><a class="mozTocH4" name="mozTocId114488"></a>dpkt.tcp.pack_hdr</h4>
+<h4><a class="mozTocH4" name="mozTocId429391"></a>dpkt.tcp.parse_opts (
+tcp.opts )<br>
+</h4>
+<p>This method parses the TCP options field into a list of (option
+number, option value) tuples.&nbsp; Use the code sequence<br>
+</p>
+<pre><code>option_list = dpkt.tcp.parse_opts ( tcp.opts )</code><br><br></pre>
+<p>to decode the options.&nbsp; For a fully worked, example, see the
+get_message_segment_size method in <a href="decode_tcp_iterator_2.py">decode_tcp_iterator_2.py</a>.<br>
+</p>
+<h4><a class="mozTocH4" name="mozTocId204266"></a>dpkt.tcp.seq</h4>
+<p>A 32 bit unsigned number.&nbsp; If the SYN flag is set, then this is
+the initial sequence number, and all subsequent sequence numbers are
+relative to this number.&nbsp; If the SYN flag is clear, then this
+number is the location of the payload of this sequence in the data
+stream.&nbsp; Note that segment can be delivered out of order, so the
+sequence number is used to get the bytes back in order.<br>
+</p>
+<h4><a class="mozTocH4" name="mozTocId183496"></a>dpkt.tcp.sport
+</h4>
+<p>The source port, a 16 bit unsigned number.&nbsp; On the initial
+connection, this will be an ephemeral port in the range 49152 through
+6553 for most modern operating systems.<br>
+</p>
+<br>
+<h4><a class="mozTocH4" name="mozTocId306597"></a>dpkt.tcp.sum</h4>
+<br>
+<br>
+<h4><a class="mozTocH4" name="mozTocId938666"></a>dpkt.tcp.unpack</h4>
+<h4><a class="mozTocH4" name="mozTocId722569"></a>dpkt.tcp.urp</h4>
+<h4><a class="mozTocH4" name="mozTocId182841"></a>dpkt.tcp.win</h4>
+<p>A 16 bit unsigned number.&nbsp; Specifies how far past the current
+sequence number in this acknowlegement the receiver is willing to
+receive.</p>
+<h3><a class="mozTocH3" name="mozTocId608799"></a>dpkt.udp</h3>
+<br>
+<br>
+<h2><a class="mozTocH2" name="mozTocId874488"></a>Classes that inherit
+from dpkt.Packet</h2>
+<p>There are a lot of classes that inherit from dpkt.Packet.&nbsp; I
+found these with the command egrep "class.*dpkt.Packet" *.py<br>
+</p>
+<pre>ah.py:class AH(dpkt.Packet):<br>aim.py:class FLAP(dpkt.Packet):<br>aim.py:class SNAC(dpkt.Packet):<br>arp.py:class ARP(dpkt.Packet):<br>bgp.py:class BGP(dpkt.Packet):<br>bgp.py:    class Open(dpkt.Packet):<br>bgp.py:        class Parameter(dpkt.Packet):<br>bgp.py:            class Authentication(dpkt.Packet):<br>bgp.py:            class Capability(dpkt.Packet):<br>bgp.py:    class Update(dpkt.Packet):<br>bgp.py:        class Attribute(dpkt.Packet):<br>bgp.py:            class Origin(dpkt.Packet):<br>bgp.py:            class ASPath(dpkt.Packet):<br>bgp.py:                class ASPathSegment(dpkt.Packet):<br>bgp.py:            class NextHop(dpkt.Packet):<br>bgp.py:            class MultiExitDisc(dpkt.Packet):<br>bgp.py:            class LocalPref(dpkt.Packet):<br>bgp.py:            class AtomicAggregate(dpkt.Packet):<br>bgp.py:            class Aggregator(dpkt.Packet):<br>bgp.py:            class Communities(dpkt.Packet):<br>bgp.py:                class Community(dpkt.Packet):<br>bgp.py:                class ReservedCommunity(dpkt.Packet):<br>bgp.py:            class OriginatorID(dpkt.Packet):<br>bgp.py:            class ClusterList(dpkt.Packet):<br>bgp.py:            class MPReachNLRI(dpkt.Packet):<br>bgp.py:            class MPUnreachNLRI(dpkt.Packet):<br>bgp.py:    class Notification(dpkt.Packet):<br>bgp.py:    class Keepalive(dpkt.Packet):<br>bgp.py:    class RouteRefresh(dpkt.Packet):<br>bgp.py:class RouteGeneric(dpkt.Packet):<br>bgp.py:class RouteIPV4(dpkt.Packet):<br>bgp.py:class RouteIPV6(dpkt.Packet):<br>cdp.py:class CDP(dpkt.Packet):<br>cdp.py:    class Address(dpkt.Packet):<br>cdp.py:    class TLV(dpkt.Packet):<br>dhcp.py:class DHCP(dpkt.Packet):<br>diameter.py:class Diameter(dpkt.Packet):<br>diameter.py:class AVP(dpkt.Packet):<br>dns.py:class DNS(dpkt.Packet):<br>dns.py:    class Q(dpkt.Packet):<br>dtp.py:class DTP(dpkt.Packet):<br>esp.py:class ESP(dpkt.Packet):<br>ethernet.py:class Ethernet(dpkt.Packet):<br>gre.py:class GRE(dpkt.Packet):<br>gre.py:    class SRE(dpkt.Packet):<br>gzip.py:class GzipExtra(dpkt.Packet):<br>gzip.py:class Gzip(dpkt.Packet):<br>h225.py:class H225(dpkt.Packet):<br>h225.py:    class IE(dpkt.Packet):<br>hsrp.py:class HSRP(dpkt.Packet):<br>http.py:class Message(dpkt.Packet):<br>icmp6.py:class ICMP6(dpkt.Packet):<br>icmp6.py:    class Error(dpkt.Packet):<br>icmp6.py:    class Echo(dpkt.Packet):<br>icmp.py:class ICMP(dpkt.Packet):<br>icmp.py:    class Echo(dpkt.Packet):<br>icmp.py:    class Quote(dpkt.Packet):<br>igmp.py:class IGMP(dpkt.Packet):<br>ip6.py:class IP6(dpkt.Packet):<br>ip.py:class IP(dpkt.Packet):<br>ipx.py:class IPX(dpkt.Packet):<br>loopback.py:class Loopback(dpkt.Packet):<br>mrt.py:class MRTHeader(dpkt.Packet):<br>mrt.py:class TableDump(dpkt.Packet):<br>mrt.py:class BGP4MPMessage(dpkt.Packet):<br>mrt.py:class BGP4MPMessage_32(dpkt.Packet):<br>netbios.py:class Session(dpkt.Packet):<br>netbios.py:class Datagram(dpkt.Packet):<br>netflow.py:class NetflowBase(dpkt.Packet):<br>netflow.py:    class NetflowRecordBase(dpkt.Packet):<br>ntp.py:class NTP(dpkt.Packet):<br>ospf.py:class OSPF(dpkt.Packet):<br>pcap.py:class PktHdr(dpkt.Packet):<br>pcap.py:class FileHdr(dpkt.Packet):<br>pim.py:class PIM(dpkt.Packet):<br>pmap.py:class Pmap(dpkt.Packet):<br>pppoe.py:class PPPoE(dpkt.Packet):<br>ppp.py:class PPP(dpkt.Packet):<br>radius.py:class RADIUS(dpkt.Packet):<br>rfb.py:class RFB(dpkt.Packet):<br>rfb.py:class SetPixelFormat(dpkt.Packet):<br>rfb.py:class SetEncodings(dpkt.Packet):<br>rfb.py:class FramebufferUpdateRequest(dpkt.Packet):<br>rfb.py:class KeyEvent(dpkt.Packet):<br>rfb.py:class PointerEvent(dpkt.Packet):<br>rfb.py:class FramebufferUpdate(dpkt.Packet):<br>rfb.py:class SetColourMapEntries(dpkt.Packet):<br>rfb.py:class CutText(dpkt.Packet):<br>rip.py:class RIP(dpkt.Packet):<br>rip.py:class RTE(dpkt.Packet):<br>rip.py:class Auth(dpkt.Packet):<br>rpc.py:class RPC(dpkt.Packet):<br>rpc.py:    class Auth(dpkt.Packet):<br>rpc.py:    class Call(dpkt.Packet):<br>rpc.py:    class Reply(dpkt.Packet):<br>rpc.py:        class Accept(dpkt.Packet):<br>rpc.py:        class Reject(dpkt.Packet):<br>rx.py:class Rx(dpkt.Packet):<br>sccp.py:class ActivateCallPlane(dpkt.Packet):<br>sccp.py:class CallInfo(dpkt.Packet):<br>sccp.py:class CallState(dpkt.Packet):<br>sccp.py:class ClearPromptStatus(dpkt.Packet):<br>sccp.py:class CloseReceiveChannel(dpkt.Packet):<br>sccp.py:class DisplayPromptStatus(dpkt.Packet):<br>sccp.py:class DisplayText(dpkt.Packet):<br>sccp.py:class KeypadButton(dpkt.Packet):<br>sccp.py:class OpenReceiveChannel(dpkt.Packet):<br>sccp.py:class OpenReceiveChannelAck(dpkt.Packet):<br>sccp.py:class SelectStartKeys(dpkt.Packet):<br>sccp.py:class SetLamp(dpkt.Packet):<br>sccp.py:class SetSpeakerMode(dpkt.Packet):<br>sccp.py:class StartMediaTransmission(dpkt.Packet):<br>sccp.py:class StartTone(dpkt.Packet):<br>sccp.py:class StopMediaTransmission(dpkt.Packet):<br>sccp.py:class SCCP(dpkt.Packet):<br>sctp.py:class SCTP(dpkt.Packet):<br>sctp.py:class Chunk(dpkt.Packet):<br>sll.py:class SLL(dpkt.Packet):<br>smb.py:class SMB(dpkt.Packet):<br>ssl.py:class SSL2(dpkt.Packet):<br>ssl.py:class SSL3(dpkt.Packet):<br>stp.py:class STP(dpkt.Packet):<br>stun.py:class STUN(dpkt.Packet):<br>tcp.py:class TCP(dpkt.Packet):<br>tftp.py:class TFTP(dpkt.Packet):<br>tns.py:class TNS(dpkt.Packet):<br>tpkt.py:class TPKT(dpkt.Packet):<br>udp.py:class UDP(dpkt.Packet):<br>vrrp.py:class VRRP(dpkt.Packet):<br>yahoo.py:class YHOO(dpkt.Packet):<br>yahoo.py:class YMSG(dpkt.Packet):<br><br></pre>
+<br>
+<br>
+<br>
+<a href="http://validator.w3.org/check/referer"><img
+ src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01!"
+ height="31" width="88" border="0"></a><span
+ style="text-decoration: underline;"> <br>
+</span></div>
+<a name="end"></a>
+</body>
+</html>

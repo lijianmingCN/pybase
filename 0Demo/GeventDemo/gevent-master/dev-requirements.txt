@@ -1,0 +1,13 @@
+setuptools
+wheel
+cython>=0.23.4
+greenlet>=0.4.9
+prospector[with_pyroma]
+coverage>=4.0
+coveralls>=1.0
+cffi
+# For viewing README.rst (restview --long-description),
+# CONTRIBUTING.rst, etc.
+# https://github.com/mgedmin/restview
+restview
+-e .

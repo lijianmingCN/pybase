@@ -1,0 +1,932 @@
+[
+    {
+        "type" : "telemetry",
+        "silf" : 378724,
+        "states" : 74688,
+        "starts" : 48,
+        "transitions" : 106494,
+        "glyphs" : 465023,
+        "code" : 82211,
+        "misc" : 2936,
+        "total" : 1110124
+    },
+    {
+        "id" : "00a5-00-a510",
+        "passes" : [
+            {
+                "id" : 1,
+                "slots" : [
+                    {
+                        "id" : "00a5-01-a700",
+                        "gid" : 43,
+                        "charinfo" : { "original" : 0, "before" : 0, "after" : 0 },
+                        "origin" : [ 0, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1522, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-a780",
+                        "gid" : 72,
+                        "charinfo" : { "original" : 1, "before" : 1, "after" : 1 },
+                        "origin" : [ 1522, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1004, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-a800",
+                        "gid" : 79,
+                        "charinfo" : { "original" : 2, "before" : 2, "after" : 2 },
+                        "origin" : [ 2526, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 608, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-a880",
+                        "gid" : 79,
+                        "charinfo" : { "original" : 3, "before" : 3, "after" : 3 },
+                        "origin" : [ 3134, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 608, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-a900",
+                        "gid" : 82,
+                        "charinfo" : { "original" : 4, "before" : 4, "after" : 4 },
+                        "origin" : [ 3742, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1114, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-a980",
+                        "gid" : 3,
+                        "charinfo" : { "original" : 5, "before" : 5, "after" : 5 },
+                        "origin" : [ 4856, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 600, 0 ],
+                        "insert" : true,
+                        "break" : 15,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-aa00",
+                        "gid" : 48,
+                        "charinfo" : { "original" : 6, "before" : 6, "after" : 6 },
+                        "origin" : [ 5456, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1794, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-aa80",
+                        "gid" : 88,
+                        "charinfo" : { "original" : 7, "before" : 7, "after" : 7 },
+                        "origin" : [ 7250, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1165, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-ab00",
+                        "gid" : 80,
+                        "charinfo" : { "original" : 8, "before" : 8, "after" : 8 },
+                        "origin" : [ 8415, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1741, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    }
+                ],
+                "rules" : [
+                    {
+                        "considered" : [
+                            { "id" : 1, "failed" : true, "input" : { "start" : "00a5-00-a780", "length" : 1 } }
+                        ],
+                        "output" : null,
+                        "cursor" : "00a5-00-a800"
+                    },
+                    {
+                        "considered" : [
+                            { "id" : 1, "failed" : true, "input" : { "start" : "00a5-00-a800", "length" : 1 } }
+                        ],
+                        "output" : null,
+                        "cursor" : "00a5-00-a880"
+                    },
+                    {
+                        "considered" : [
+                            { "id" : 1, "failed" : true, "input" : { "start" : "00a5-00-a880", "length" : 1 } }
+                        ],
+                        "output" : null,
+                        "cursor" : "00a5-00-a900"
+                    },
+                    {
+                        "considered" : [
+                            { "id" : 1, "failed" : true, "input" : { "start" : "00a5-00-a900", "length" : 1 } }
+                        ],
+                        "output" : null,
+                        "cursor" : "00a5-00-a980"
+                    },
+                    {
+                        "considered" : [
+                            { "id" : 1, "failed" : true, "input" : { "start" : "00a5-00-aa80", "length" : 1 } }
+                        ],
+                        "output" : null,
+                        "cursor" : "00a5-00-ab00"
+                    },
+                    {
+                        "considered" : [
+                            { "id" : 1, "failed" : true, "input" : { "start" : "00a5-00-ab00", "length" : 1 } }
+                        ],
+                        "output" : null,
+                        "cursor" : "0000-00-0000"
+                    }
+                ]
+            },
+            {
+                "id" : 2,
+                "slots" : [
+                    {
+                        "id" : "00a5-01-a700",
+                        "gid" : 43,
+                        "charinfo" : { "original" : 0, "before" : 0, "after" : 0 },
+                        "origin" : [ 0, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1522, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-a780",
+                        "gid" : 72,
+                        "charinfo" : { "original" : 1, "before" : 1, "after" : 1 },
+                        "origin" : [ 1522, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1004, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-a800",
+                        "gid" : 79,
+                        "charinfo" : { "original" : 2, "before" : 2, "after" : 2 },
+                        "origin" : [ 2526, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 608, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-a880",
+                        "gid" : 79,
+                        "charinfo" : { "original" : 3, "before" : 3, "after" : 3 },
+                        "origin" : [ 3134, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 608, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-a900",
+                        "gid" : 82,
+                        "charinfo" : { "original" : 4, "before" : 4, "after" : 4 },
+                        "origin" : [ 3742, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1114, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-a980",
+                        "gid" : 3,
+                        "charinfo" : { "original" : 5, "before" : 5, "after" : 5 },
+                        "origin" : [ 4856, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 600, 0 ],
+                        "insert" : true,
+                        "break" : 15,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-aa00",
+                        "gid" : 48,
+                        "charinfo" : { "original" : 6, "before" : 6, "after" : 6 },
+                        "origin" : [ 5456, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1794, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-aa80",
+                        "gid" : 88,
+                        "charinfo" : { "original" : 7, "before" : 7, "after" : 7 },
+                        "origin" : [ 7250, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1165, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-ab00",
+                        "gid" : 80,
+                        "charinfo" : { "original" : 8, "before" : 8, "after" : 8 },
+                        "origin" : [ 8415, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1741, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    }
+                ],
+                "rules" : [
+                    {
+                        "considered" : [
+                            { "id" : 95, "failed" : true, "input" : { "start" : "00a5-00-a800", "length" : 1 } }
+                        ],
+                        "output" : null,
+                        "cursor" : "00a5-00-a880"
+                    },
+                    {
+                        "considered" : [
+                            { "id" : 95, "failed" : true, "input" : { "start" : "00a5-00-a880", "length" : 1 } }
+                        ],
+                        "output" : null,
+                        "cursor" : "00a5-00-a900"
+                    }
+                ]
+            },
+            {
+                "id" : 3,
+                "slots" : [
+                    {
+                        "id" : "00a5-01-a700",
+                        "gid" : 43,
+                        "charinfo" : { "original" : 0, "before" : 0, "after" : 0 },
+                        "origin" : [ 0, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1522, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-a780",
+                        "gid" : 72,
+                        "charinfo" : { "original" : 1, "before" : 1, "after" : 1 },
+                        "origin" : [ 1522, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1004, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-a800",
+                        "gid" : 79,
+                        "charinfo" : { "original" : 2, "before" : 2, "after" : 2 },
+                        "origin" : [ 2526, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 608, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-a880",
+                        "gid" : 79,
+                        "charinfo" : { "original" : 3, "before" : 3, "after" : 3 },
+                        "origin" : [ 3134, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 608, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-a900",
+                        "gid" : 82,
+                        "charinfo" : { "original" : 4, "before" : 4, "after" : 4 },
+                        "origin" : [ 3742, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1114, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-a980",
+                        "gid" : 3,
+                        "charinfo" : { "original" : 5, "before" : 5, "after" : 5 },
+                        "origin" : [ 4856, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 600, 0 ],
+                        "insert" : true,
+                        "break" : 15,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-aa00",
+                        "gid" : 48,
+                        "charinfo" : { "original" : 6, "before" : 6, "after" : 6 },
+                        "origin" : [ 5456, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1794, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-aa80",
+                        "gid" : 88,
+                        "charinfo" : { "original" : 7, "before" : 7, "after" : 7 },
+                        "origin" : [ 7250, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1165, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-ab00",
+                        "gid" : 80,
+                        "charinfo" : { "original" : 8, "before" : 8, "after" : 8 },
+                        "origin" : [ 8415, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1741, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    }
+                ],
+                "rules" : []
+            },
+            {
+                "id" : 4,
+                "slots" : [
+                    {
+                        "id" : "00a5-01-a700",
+                        "gid" : 43,
+                        "charinfo" : { "original" : 0, "before" : 0, "after" : 0 },
+                        "origin" : [ 0, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1522, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-a780",
+                        "gid" : 72,
+                        "charinfo" : { "original" : 1, "before" : 1, "after" : 1 },
+                        "origin" : [ 1522, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1004, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-a800",
+                        "gid" : 79,
+                        "charinfo" : { "original" : 2, "before" : 2, "after" : 2 },
+                        "origin" : [ 2526, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 608, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-a880",
+                        "gid" : 79,
+                        "charinfo" : { "original" : 3, "before" : 3, "after" : 3 },
+                        "origin" : [ 3134, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 608, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-a900",
+                        "gid" : 82,
+                        "charinfo" : { "original" : 4, "before" : 4, "after" : 4 },
+                        "origin" : [ 3742, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1114, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-a980",
+                        "gid" : 3,
+                        "charinfo" : { "original" : 5, "before" : 5, "after" : 5 },
+                        "origin" : [ 4856, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 600, 0 ],
+                        "insert" : true,
+                        "break" : 15,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-aa00",
+                        "gid" : 48,
+                        "charinfo" : { "original" : 6, "before" : 6, "after" : 6 },
+                        "origin" : [ 5456, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1794, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-aa80",
+                        "gid" : 88,
+                        "charinfo" : { "original" : 7, "before" : 7, "after" : 7 },
+                        "origin" : [ 7250, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1165, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-ab00",
+                        "gid" : 80,
+                        "charinfo" : { "original" : 8, "before" : 8, "after" : 8 },
+                        "origin" : [ 8415, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1741, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    }
+                ],
+                "rules" : []
+            },
+            {
+                "id" : 5,
+                "slots" : [
+                    {
+                        "id" : "00a5-01-a700",
+                        "gid" : 43,
+                        "charinfo" : { "original" : 0, "before" : 0, "after" : 0 },
+                        "origin" : [ 0, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1522, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-a780",
+                        "gid" : 72,
+                        "charinfo" : { "original" : 1, "before" : 1, "after" : 1 },
+                        "origin" : [ 1522, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1004, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-a800",
+                        "gid" : 79,
+                        "charinfo" : { "original" : 2, "before" : 2, "after" : 2 },
+                        "origin" : [ 2526, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 608, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-a880",
+                        "gid" : 79,
+                        "charinfo" : { "original" : 3, "before" : 3, "after" : 3 },
+                        "origin" : [ 3134, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 608, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-a900",
+                        "gid" : 82,
+                        "charinfo" : { "original" : 4, "before" : 4, "after" : 4 },
+                        "origin" : [ 3742, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1114, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-a980",
+                        "gid" : 3,
+                        "charinfo" : { "original" : 5, "before" : 5, "after" : 5 },
+                        "origin" : [ 4856, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 600, 0 ],
+                        "insert" : true,
+                        "break" : 15,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-aa00",
+                        "gid" : 48,
+                        "charinfo" : { "original" : 6, "before" : 6, "after" : 6 },
+                        "origin" : [ 5456, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1794, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-aa80",
+                        "gid" : 88,
+                        "charinfo" : { "original" : 7, "before" : 7, "after" : 7 },
+                        "origin" : [ 7250, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1165, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-ab00",
+                        "gid" : 80,
+                        "charinfo" : { "original" : 8, "before" : 8, "after" : 8 },
+                        "origin" : [ 8415, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1741, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    }
+                ],
+                "rules" : []
+            },
+            {
+                "id" : 6,
+                "slots" : [
+                    {
+                        "id" : "00a5-01-a700",
+                        "gid" : 43,
+                        "charinfo" : { "original" : 0, "before" : 0, "after" : 0 },
+                        "origin" : [ 0, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1522, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-a780",
+                        "gid" : 72,
+                        "charinfo" : { "original" : 1, "before" : 1, "after" : 1 },
+                        "origin" : [ 1522, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1004, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-a800",
+                        "gid" : 79,
+                        "charinfo" : { "original" : 2, "before" : 2, "after" : 2 },
+                        "origin" : [ 2526, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 608, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-a880",
+                        "gid" : 79,
+                        "charinfo" : { "original" : 3, "before" : 3, "after" : 3 },
+                        "origin" : [ 3134, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 608, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-a900",
+                        "gid" : 82,
+                        "charinfo" : { "original" : 4, "before" : 4, "after" : 4 },
+                        "origin" : [ 3742, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1114, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-a980",
+                        "gid" : 3,
+                        "charinfo" : { "original" : 5, "before" : 5, "after" : 5 },
+                        "origin" : [ 4856, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 600, 0 ],
+                        "insert" : true,
+                        "break" : 15,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-aa00",
+                        "gid" : 48,
+                        "charinfo" : { "original" : 6, "before" : 6, "after" : 6 },
+                        "origin" : [ 5456, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1794, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-aa80",
+                        "gid" : 88,
+                        "charinfo" : { "original" : 7, "before" : 7, "after" : 7 },
+                        "origin" : [ 7250, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1165, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    },
+                    {
+                        "id" : "00a5-00-ab00",
+                        "gid" : 80,
+                        "charinfo" : { "original" : 8, "before" : 8, "after" : 8 },
+                        "origin" : [ 8415, 0 ],
+                        "shift" : [ 0, 0 ],
+                        "advance" : [ 1741, 0 ],
+                        "insert" : true,
+                        "break" : 30,
+                        "user" : [ 0, 0, 0, 0, 0 ]
+                    }
+                ],
+                "rules" : []
+            }
+        ],
+        "output" : [
+            {
+                "id" : "00a5-01-a700",
+                "gid" : 43,
+                "charinfo" : { "original" : 0, "before" : 0, "after" : 0 },
+                "origin" : [ 0, 0 ],
+                "shift" : [ 0, 0 ],
+                "advance" : [ 1522, 0 ],
+                "insert" : true,
+                "break" : 30,
+                "user" : [ 0, 0, 0, 0, 0 ]
+            },
+            {
+                "id" : "00a5-00-a780",
+                "gid" : 72,
+                "charinfo" : { "original" : 1, "before" : 1, "after" : 1 },
+                "origin" : [ 1522, 0 ],
+                "shift" : [ 0, 0 ],
+                "advance" : [ 1004, 0 ],
+                "insert" : true,
+                "break" : 30,
+                "user" : [ 0, 0, 0, 0, 0 ]
+            },
+            {
+                "id" : "00a5-00-a800",
+                "gid" : 79,
+                "charinfo" : { "original" : 2, "before" : 2, "after" : 2 },
+                "origin" : [ 2526, 0 ],
+                "shift" : [ 0, 0 ],
+                "advance" : [ 608, 0 ],
+                "insert" : true,
+                "break" : 30,
+                "user" : [ 0, 0, 0, 0, 0 ]
+            },
+            {
+                "id" : "00a5-00-a880",
+                "gid" : 79,
+                "charinfo" : { "original" : 3, "before" : 3, "after" : 3 },
+                "origin" : [ 3134, 0 ],
+                "shift" : [ 0, 0 ],
+                "advance" : [ 608, 0 ],
+                "insert" : true,
+                "break" : 30,
+                "user" : [ 0, 0, 0, 0, 0 ]
+            },
+            {
+                "id" : "00a5-00-a900",
+                "gid" : 82,
+                "charinfo" : { "original" : 4, "before" : 4, "after" : 4 },
+                "origin" : [ 3742, 0 ],
+                "shift" : [ 0, 0 ],
+                "advance" : [ 1114, 0 ],
+                "insert" : true,
+                "break" : 30,
+                "user" : [ 0, 0, 0, 0, 0 ]
+            },
+            {
+                "id" : "00a5-00-a980",
+                "gid" : 3,
+                "charinfo" : { "original" : 5, "before" : 5, "after" : 5 },
+                "origin" : [ 4856, 0 ],
+                "shift" : [ 0, 0 ],
+                "advance" : [ 600, 0 ],
+                "insert" : true,
+                "break" : 15,
+                "user" : [ 0, 0, 0, 0, 0 ]
+            },
+            {
+                "id" : "00a5-00-aa00",
+                "gid" : 48,
+                "charinfo" : { "original" : 6, "before" : 6, "after" : 6 },
+                "origin" : [ 5456, 0 ],
+                "shift" : [ 0, 0 ],
+                "advance" : [ 1794, 0 ],
+                "insert" : true,
+                "break" : 30,
+                "user" : [ 0, 0, 0, 0, 0 ]
+            },
+            {
+                "id" : "00a5-00-aa80",
+                "gid" : 88,
+                "charinfo" : { "original" : 7, "before" : 7, "after" : 7 },
+                "origin" : [ 7250, 0 ],
+                "shift" : [ 0, 0 ],
+                "advance" : [ 1165, 0 ],
+                "insert" : true,
+                "break" : 30,
+                "user" : [ 0, 0, 0, 0, 0 ]
+            },
+            {
+                "id" : "00a5-00-ab00",
+                "gid" : 80,
+                "charinfo" : { "original" : 8, "before" : 8, "after" : 8 },
+                "origin" : [ 8415, 0 ],
+                "shift" : [ 0, 0 ],
+                "advance" : [ 1741, 0 ],
+                "insert" : true,
+                "break" : 30,
+                "user" : [ 0, 0, 0, 0, 0 ]
+            }
+        ],
+        "advance" : [ 0, 0 ],
+        "chars" : [
+            { "offset" : 0, "unicode" : 72, "break" : 30, "flags" : 0, "slot" : { "before" : 0, "after" : 0 } },
+            { "offset" : 1, "unicode" : 101, "break" : 30, "flags" : 0, "slot" : { "before" : 1, "after" : 1 } },
+            { "offset" : 2, "unicode" : 108, "break" : 30, "flags" : 0, "slot" : { "before" : 2, "after" : 2 } },
+            { "offset" : 3, "unicode" : 108, "break" : 30, "flags" : 0, "slot" : { "before" : 3, "after" : 3 } },
+            { "offset" : 4, "unicode" : 111, "break" : 30, "flags" : 0, "slot" : { "before" : 4, "after" : 4 } },
+            { "offset" : 5, "unicode" : 32, "break" : 15, "flags" : 0, "slot" : { "before" : 5, "after" : 5 } },
+            { "offset" : 6, "unicode" : 77, "break" : 30, "flags" : 0, "slot" : { "before" : 6, "after" : 6 } },
+            { "offset" : 7, "unicode" : 117, "break" : 30, "flags" : 0, "slot" : { "before" : 7, "after" : 7 } },
+            { "offset" : 8, "unicode" : 109, "break" : 30, "flags" : 0, "slot" : { "before" : 8, "after" : 8 } }
+        ]
+    },
+    {
+        "justifies" : "00a5-00-a510",
+        "passes" : [],
+        "output" : [
+            {
+                "id" : "00a5-01-a700",
+                "gid" : 43,
+                "charinfo" : { "original" : 0, "before" : 0, "after" : 0 },
+                "origin" : [ 0, 0 ],
+                "shift" : [ 0, 0 ],
+                "advance" : [ 1522, 0 ],
+                "insert" : true,
+                "break" : 30,
+                "user" : [ 0, 0, 0, 0, 0 ]
+            },
+            {
+                "id" : "00a5-00-a780",
+                "gid" : 72,
+                "charinfo" : { "original" : 1, "before" : 1, "after" : 1 },
+                "origin" : [ 1563, 0 ],
+                "shift" : [ 0, 0 ],
+                "advance" : [ 1004, 0 ],
+                "insert" : true,
+                "break" : 30,
+                "justification" : 41,
+                "user" : [ 0, 0, 0, 0, 0 ]
+            },
+            {
+                "id" : "00a5-00-a800",
+                "gid" : 79,
+                "charinfo" : { "original" : 2, "before" : 2, "after" : 2 },
+                "origin" : [ 2608, 0 ],
+                "shift" : [ 0, 0 ],
+                "advance" : [ 608, 0 ],
+                "insert" : true,
+                "break" : 30,
+                "justification" : 41,
+                "user" : [ 0, 0, 0, 0, 0 ]
+            },
+            {
+                "id" : "00a5-00-a880",
+                "gid" : 79,
+                "charinfo" : { "original" : 3, "before" : 3, "after" : 3 },
+                "origin" : [ 3257, 0 ],
+                "shift" : [ 0, 0 ],
+                "advance" : [ 608, 0 ],
+                "insert" : true,
+                "break" : 30,
+                "justification" : 41,
+                "user" : [ 0, 0, 0, 0, 0 ]
+            },
+            {
+                "id" : "00a5-00-a900",
+                "gid" : 82,
+                "charinfo" : { "original" : 4, "before" : 4, "after" : 4 },
+                "origin" : [ 3906, 0 ],
+                "shift" : [ 0, 0 ],
+                "advance" : [ 1114, 0 ],
+                "insert" : true,
+                "break" : 30,
+                "justification" : 41,
+                "user" : [ 0, 0, 0, 0, 0 ]
+            },
+            {
+                "id" : "00a5-00-a980",
+                "gid" : 3,
+                "charinfo" : { "original" : 5, "before" : 5, "after" : 5 },
+                "origin" : [ 5443, 0 ],
+                "shift" : [ 0, 0 ],
+                "advance" : [ 600, 0 ],
+                "insert" : true,
+                "break" : 15,
+                "justification" : 423,
+                "user" : [ 0, 0, 0, 0, 0 ]
+            },
+            {
+                "id" : "00a5-00-aa00",
+                "gid" : 48,
+                "charinfo" : { "original" : 6, "before" : 6, "after" : 6 },
+                "origin" : [ 6084, 0 ],
+                "shift" : [ 0, 0 ],
+                "advance" : [ 1794, 0 ],
+                "insert" : true,
+                "break" : 30,
+                "justification" : 41,
+                "user" : [ 0, 0, 0, 0, 0 ]
+            },
+            {
+                "id" : "00a5-00-aa80",
+                "gid" : 88,
+                "charinfo" : { "original" : 7, "before" : 7, "after" : 7 },
+                "origin" : [ 7919, 0 ],
+                "shift" : [ 0, 0 ],
+                "advance" : [ 1165, 0 ],
+                "insert" : true,
+                "break" : 30,
+                "justification" : 41,
+                "user" : [ 0, 0, 0, 0, 0 ]
+            },
+            {
+                "id" : "00a5-00-ab00",
+                "gid" : 80,
+                "charinfo" : { "original" : 8, "before" : 8, "after" : 8 },
+                "origin" : [ 9125, 0 ],
+                "shift" : [ 0, 0 ],
+                "advance" : [ 1741, 0 ],
+                "insert" : true,
+                "break" : 30,
+                "justification" : 41,
+                "user" : [ 0, 0, 0, 0, 0 ]
+            }
+        ]
+    }
+]

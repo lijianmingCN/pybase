@@ -1,0 +1,16 @@
+(i__main__
+Person
+p0
+(dp1
+S'age'
+p2
+I2
+sS'name'
+p3
+S'JGood'
+p4
+sb.(lp0
+I1
+aI2
+aI3
+a.
